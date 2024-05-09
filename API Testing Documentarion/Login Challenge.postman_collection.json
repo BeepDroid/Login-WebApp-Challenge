@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "ca22f23b-4d7f-4532-b463-f0de4482e2cc",
+		"name": "Login Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33348965"
+	},
+	"item": [
+		{
+			"name": "http://localhost/Api/Users/Signup.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/Api/Users/Signup.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Api",
+						"Users",
+						"Signup.php"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/LoginChallenge/Api/User/Login.php?username=Kerrigan&password=Ebey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/LoginChallenge/Api/User/Login.php?username=Kerrigan&password=Ebey",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"LoginChallenge",
+						"Api",
+						"User",
+						"Login.php"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Kerrigan"
+						},
+						{
+							"key": "password",
+							"value": "Ebey"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/LoginChallenge/Api/User/Singup.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/LoginChallenge/Api/User/Singup.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"LoginChallenge",
+						"Api",
+						"User",
+						"Singup.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
