@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}
   max-width:525px;
   min-height:570px;
   position:relative;
-  background:url(http://codinginfinite.com/demo/images/bg.jpg) no-repeat center;
+  background:rgba(40,57,101,.9);
   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
@@ -191,11 +191,6 @@ a{color:inherit;text-decoration:none}
     </style>
     </head>
     <body>
-         <div class="overlay" id="overlay"></div>
-    <div class="popup" id="popup">
-        <p>Login successful!</p>
-        <button onclick="logout()">Logout</button>
-    </div>
 
      <div class="login-wrap">
         <div class="login-html">
@@ -217,10 +212,6 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="group">
           <input type="submit" class="button" value="Sign In">
-        </div>
-        <div class="hr"></div>
-        <div class="foot-lnk">
-          <a href="#forgot">Forgot Password?</a>
         </div>
       </form>
         
@@ -247,7 +238,7 @@ a{color:inherit;text-decoration:none}
         </div>
         <div class="hr"></div>
         <div class="foot-lnk">
-          <label for="tab-1">Already Member?</a>
+          <label for="tab-1">Already A Member?</a>
         </div>
       </form>
     </div>

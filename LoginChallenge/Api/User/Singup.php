@@ -42,10 +42,11 @@
         .returnbutton {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #007bff;
+            background:#1161ee;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            border:none;
             transition: background-color 0.3s ease;
         }
         .returnbutton:hover {
@@ -60,7 +61,7 @@
         <p id="responseTitle">Processing. . .</p>
         
         <form action="index.php">
-        <button type="submit" class="returnbutton">Login</button>
+        <a href="http://localhost/LoginChallenge/index.php" class="returnbutton">Go Back to Index</a>
         </form>
     </div>
 
@@ -104,7 +105,7 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['emai
     }
 }
 
- echo '<hr>';
+
  //This was used for testing purposes to ensure the API endpoints were being used effectively. 
  //The screenshot capturing it is in the same folder as my Postman files. 
 // -- echo '<pre>' . json_encode($userArray, JSON_PRETTY_PRINT) . '</pre>';

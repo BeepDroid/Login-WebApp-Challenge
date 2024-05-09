@@ -7,7 +7,7 @@
     <style>
         body {
              margin:0;
-             color:#6a6f8c;
+             color:#adb0c4;
              background:#FFFFFF;
              font:600 16px/18px 'Open Sans',sans-serif;
              align-items: center;
@@ -37,15 +37,15 @@
             margin:60px 0 50px 0;
             align-content: center;
             position: relative;
-            background:rgba(255,255,255,.2);
         }
         .logoutbutton {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #007bff;
+            background:#1161ee;
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            border:none;
             transition: background-color 0.3s ease;
         }
         .logoutbutton:hover {
@@ -56,7 +56,6 @@
 <body>
 <div class="return-wrap">
 <div class="return-html">
-<hr>
 <?php
 
 /* 
@@ -112,12 +111,16 @@ if ($stmt !== false) { // Check if $stmt is not false
 
 
 ?>
-<hr>
+
         <form action="Logout.php" method="post">
             <button type="submit" class="logoutbutton">Logout</button>
         </form>
-     <hr>
-        <pre><?php echo json_encode($userArray, JSON_PRETTY_PRINT); ?></pre>
+    
+     <!-- Below is another testing code for verifying my API connections as  I was coding.
+     Although not necessary give the Postman collection for this particular GET, I still wanted to include how I was actively 
+     debugging during my process.-->
+     <!-- <!--  echo json_encode($userArray, JSON_PRETTY_PRINT);  -->
+     
     </div>
 </div>
 </body>

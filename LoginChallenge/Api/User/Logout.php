@@ -15,4 +15,9 @@ session_destroy();
 
 // Redirect the user to the login page or any other page
 header("Location: /LoginChallenge/index.php");
+
+
+//JSON Readout for testing purposes with the API. Screenshot of results provided in documentation folder! 
+// ----> echo json_encode(array("message" => "Token revoked: $token"));
+
 exit;
