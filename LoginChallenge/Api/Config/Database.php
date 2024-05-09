@@ -22,6 +22,7 @@ class Database {
     public function getConnection(){
         try{
             $this->conn = new PDO("pgsql:host=" . $this->host . ";dbname=" . $this->dbName, $this->user, $this->password);
+            //The below section of code was removed due to an error I continously ran into that wouldn't register this line.
             //$this->conn->exec("set names utf8");
         }
         catch (PDOException $e) {

@@ -8,7 +8,7 @@
          body {
              margin:0;
              color:#6a6f8c;
-             background:#FFFFFF;
+             background: url(https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTUtMTA1MF8yLnBuZw.png) repeat;
              font:600 16px/18px 'Open Sans',sans-serif;
              align-items: center;
         }
@@ -60,8 +60,9 @@
 
         <p id="responseTitle">Processing. . .</p>
         
+        
         <form action="index.php">
-        <a href="http://localhost/LoginChallenge/index.php" class="returnbutton">Go Back to Index</a>
+        <a href="http://localhost/LoginChallenge/index.php" class="returnbutton">Login</a>
         </form>
     </div>
 
@@ -71,25 +72,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
-
+//Including the files for connection and User object.
 include_once '../config/Database.php';
 include_once '../objects/User.php';
 
+//Connection logic.
 $database = new Database();
 $db = $database->getConnection();
 
+//User stores the information we need.
 $user = new User($db);
-
+//Although this is handled on the front-end, I was using this for POST JSON testing. 
+//Screenshot included in API testing folder.
 if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['email'])) {
     $userArray = array(
         "status" => false,
         "message" => "Please fill in all the required fields."
     );
 } else {
+    //This is my POST API logic for signing in! 
     $user->username=$_POST['username'];
     $user->password=$_POST['password'];
     $user->email=$_POST['email'];
 
+    //Executing Signup() method in our User class
     if($user->Signup()){
         $userArray=array(
             "status" => true,
@@ -110,10 +116,10 @@ if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['emai
  //The screenshot capturing it is in the same folder as my Postman files. 
 // -- echo '<pre>' . json_encode($userArray, JSON_PRETTY_PRINT) . '</pre>';
 ?>
-    
+    <!<!-- I wanted to add in some sort of method to show the user exactly what was going wrong, this also helped me with testing. -->
      <script>
         // Parse the JSON response from PHP
-        var response = <?php echo json_encode($userArray); ?>;
+        var response = <?php echo json_encode($userArray); ?>; //Originally I had this printing out as is just to see the JSON response
 
         // Get the h1 element
         var responseTitle = document.getElementById("responseTitle");

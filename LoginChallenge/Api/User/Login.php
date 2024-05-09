@@ -8,7 +8,7 @@
         body {
              margin:0;
              color:#adb0c4;
-             background:#FFFFFF;
+             background: url(https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTUtMTA1MF8yLnBuZw.png) repeat;
              font:600 16px/18px 'Open Sans',sans-serif;
              align-items: center;
         }
@@ -63,17 +63,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
+//Including the files for database connection and User object.
 include_once '../config/Database.php';
 include_once '../objects/User.php';
 
+//Getting the connection.
 $database = new Database();
 $db = $database->getConnection();
 
+//Setting User object to store the information.
 $user = new User($db);
 
+//GET Endpoints!
 $user->username = isset($_GET['username']) ? $_GET['username'] : die();
 $user->password = isset($_GET['password']) ? $_GET['password'] : die();
 
+//Executing Login method() from User class
 $stmt = $user->Login();
 
 
@@ -81,11 +86,14 @@ if ($stmt !== false) { // Check if $stmt is not false
     if ($stmt->rowCount() > 0) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         
+        //Generating a token for the user's session.
         $token = bin2hex(random_bytes(32));
         
+        //More secure way possible by attaching to user ID maybe? 
         session_start();
         $_SESSION['user_token'] = $token;
         
+        //A lot of testing statements
         $userArray = array(
             "status" => true,
             "message" => "Successful Login!",
@@ -119,6 +127,7 @@ if ($stmt !== false) { // Check if $stmt is not false
      <!-- Below is another testing code for verifying my API connections as  I was coding.
      Although not necessary give the Postman collection for this particular GET, I still wanted to include how I was actively 
      debugging during my process.-->
+     
      <!-- <!--  echo json_encode($userArray, JSON_PRETTY_PRINT);  -->
      
     </div>

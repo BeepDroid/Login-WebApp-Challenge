@@ -9,11 +9,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title> User Registration</title>
         <style>
          body{
-  margin:0;
-  color:#6a6f8c;
-  background:#FFFFFF;
-  font:600 16px/18px 'Open Sans',sans-serif;
-}
+            margin:0;
+            color:#6a6f8c;
+            background: url(https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm00NTUtMTA1MF8yLnBuZw.png) repeat;
+            font:600 16px/18px 'Open Sans',sans-serif;
+        }
 *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:table}
 .clearfix:after{clear:both;display:block}
@@ -197,7 +197,7 @@ a{color:inherit;text-decoration:none}
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
     <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
     <div class="login-form">
-      <form class="sign-in-htm" action="./Api/User/Login.php" method="GET">
+      <form class="sign-in-htm" action="./Api/User/Login.php" method="GET" onsubmit="return validateSignInForm()">
         <div class="group">
           <label for="user" class="label">Username</label>
           <input id="username" name="username" type="text" class="input">
@@ -216,7 +216,7 @@ a{color:inherit;text-decoration:none}
       </form>
         
         
-         <form class="sign-up-htm" action="./Api/User/Singup.php" method="POST">
+         <form class="sign-up-htm" action="./Api/User/Singup.php" method="POST" onsubmit="return validateSignUpForm()">
         <div class="group">
           <label for="user" class="label">Username</label>
           <input id="username" name="username" type="text" class="input">
@@ -244,5 +244,32 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 </div>
-    </body>
+<script>
+    //Error handling for front-end null values.
+    function validateSignInForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username.trim() === "" || password.trim() === "") {
+            alert("Please enter both username and password.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+
+    function validateSignUpForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username.trim() === "" || password.trim() === "") {
+            alert("Please fill in all the required fields.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>  
+        
+</body>
 </html>
